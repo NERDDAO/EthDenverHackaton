@@ -7,10 +7,9 @@ import { useWalletLogin } from "@lens-protocol/react";
 import { useAccount, useConnect, useDisconnect, useSigner } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { useProfile } from "@lens-protocol/react";
+import { Feed } from "~~/components/feeed";
 
 const Home: NextPage = () => {
-  const { login, error: loginError, isPending: isLoginPending } = useWalletLogin();
-
   const { data: signer, isError, isLoading } = useSigner();
 
   const onLoginClick = async () => {
@@ -18,15 +17,15 @@ const Home: NextPage = () => {
       console.log("signer", signer);
     }
   };
+
+  const feed = Feed();
+  console.log("feed", feed);
   return (
     <div>
-      {loginError && <p>{loginError.message}</p>}
-      <button disabled={isLoginPending} onClick={onLoginClick}>
-        Log in
-      </button>
       <div>
         <h1 className="text-4xl font-bold text-center">Welcome to Lens</h1>
       </div>
+      <Feed />
     </div>
   );
 };
