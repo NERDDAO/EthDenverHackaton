@@ -10,6 +10,10 @@ import { appChains } from "~~/services/web3/wagmiConnectors";
 import { wagmiClient } from "~~/services/web3/wagmiClient";
 import { BlockieAvatar } from "~~/components/scaffold-eth";
 
+import { LensConfig, LensProvider, sources, staging } from "@lens-protocol/react";
+import { localStorage } from "@lens-protocol/react/web";
+import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
+
 import Header from "~~/components/Header";
 import Footer from "~~/components/Footer";
 
@@ -18,6 +22,13 @@ import { useAppStore } from "~~/services/store/store";
 import { useEthPrice } from "~~/hooks/scaffold-eth";
 
 import NextNProgress from "nextjs-progressbar";
+
+const lensConfig: LensConfig = {
+  bindings: wagmiBindings(),
+  environment: staging,
+  sources: [sources.lenster, sources.orb],
+  storage: localStorage(),
+};
 
 const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
   const price = useEthPrice();
@@ -32,16 +43,18 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
   return (
     <WagmiConfig client={wagmiClient}>
       <NextNProgress />
-      <RainbowKitProvider chains={appChains.chains} avatar={BlockieAvatar}>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="relative flex flex-col flex-1">
-            <Component {...pageProps} />
-          </main>
-          <Footer />
-        </div>
-        <Toaster />
-      </RainbowKitProvider>
+      <LensProvider config={lensConfig}>
+        <RainbowKitProvider chains={appChains.chains} avatar={BlockieAvatar}>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="relative flex flex-col flex-1">
+              <Component {...pageProps} />
+            </main>
+            <Footer />
+          </div>
+          <Toaster />
+        </RainbowKitProvider>
+      </LensProvider>
     </WagmiConfig>
   );
 };
