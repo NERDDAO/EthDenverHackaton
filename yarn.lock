@@ -985,6 +985,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lens-protocol/wagmi@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@lens-protocol/wagmi@npm:0.5.0"
+  dependencies:
+    "@lens-protocol/shared-kernel": 0.5.0
+  peerDependencies:
+    "@lens-protocol/react": 0.5.0
+    ethers: ^5.7.2
+    wagmi: ">=0.9.2 <=0.11.7"
+  checksum: c423f82b51d4df5d7811788fda8782d1dd0448d79612db1085b1c284793b60d2fa702cd0f6c0c5716a3052a7b5ff64759e0ee9599aefb7d03baab64cea27812b
+  languageName: node
+  linkType: hard
+
 "@lit-labs/ssr-dom-shim@npm:^1.0.0":
   version: 1.0.0
   resolution: "@lit-labs/ssr-dom-shim@npm:1.0.0"
@@ -12563,8 +12576,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    "@lens-protocol/react": ^0.5.0
+    "@lens-protocol/wagmi": ^0.5.0
     husky: ^8.0.1
     lint-staged: ^13.0.3
+    wagmi: ^0.11.7
   languageName: unknown
   linkType: soft
 

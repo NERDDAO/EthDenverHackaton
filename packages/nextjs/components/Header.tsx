@@ -6,11 +6,13 @@ import RainbowKitCustomConnectButton from "~~/components/scaffold-eth/RainbowKit
 import { Bars3Icon, BugAntIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import { useActiveProfile } from "@lens-protocol/react";
+import { LoginButton } from "~~/components/auth/LoginButton";
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const router = useRouter();
   const isActive = router.pathname === href;
-
+  const { data: profile } = useActiveProfile();
   return (
     <Link
       href={href}
@@ -93,6 +95,7 @@ export default function Header() {
       <div className="navbar-end flex-grow mr-4">
         <RainbowKitCustomConnectButton />
         <FaucetButton />
+        <LoginButton />
       </div>
     </div>
   );

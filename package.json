@@ -32,5 +32,10 @@
   "devDependencies": {
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
+  },
+  "dependencies": {
+    "@lens-protocol/react": "^0.5.0",
+    "@lens-protocol/wagmi": "^0.5.0",
+    "wagmi": "^0.11.7"
   }
 }

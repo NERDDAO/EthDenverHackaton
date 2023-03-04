@@ -2,17 +2,12 @@ import "~~/styles/globals.css";
 
 import type { AppProps } from "next/app";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { WagmiConfig } from "wagmi";
-import { Toaster } from "react-hot-toast";
 
 import "@rainbow-me/rainbowkit/styles.css";
 import { appChains } from "~~/services/web3/wagmiConnectors";
 import { wagmiClient } from "~~/services/web3/wagmiClient";
+import { lensConfig } from "~~/services/web3/lensConfig";
 import { BlockieAvatar } from "~~/components/scaffold-eth";
-
-import { LensConfig, LensProvider, sources, staging } from "@lens-protocol/react";
-import { localStorage } from "@lens-protocol/react/web";
-import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
 
 import Header from "~~/components/Header";
 import Footer from "~~/components/Footer";
@@ -23,12 +18,18 @@ import { useEthPrice } from "~~/hooks/scaffold-eth";
 
 import NextNProgress from "nextjs-progressbar";
 
-const lensConfig: LensConfig = {
-  bindings: wagmiBindings(),
-  environment: staging,
-  sources: [sources.lenster, sources.orb],
-  storage: localStorage(),
-};
+import toast, { Toaster } from "react-hot-toast";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { mainnet, polygon } from "wagmi/chains";
+import { publicProvider } from "wagmi/providers/public";
+
+import { LensConfig, staging } from "@lens-protocol/react";
+import { localStorage } from "@lens-protocol/react/web";
+import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
+
+import { LensProvider } from "@lens-protocol/react";
+
+const { provider, webSocketProvider } = configureChains([polygon, mainnet], [publicProvider()]);
 
 const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
   const price = useEthPrice();

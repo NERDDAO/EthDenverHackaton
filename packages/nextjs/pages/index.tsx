@@ -8,26 +8,32 @@ import { useAccount, useConnect, useDisconnect, useSigner } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { useProfile } from "@lens-protocol/react";
 import { Feed } from "~~/components/feeed";
+import { LoginButton } from "~~/components/auth/LoginButton";
+import { WhenLoggedInWithProfile } from "~~/components/auth/WhenLoggedInWithProfile";
 
 const Home: NextPage = () => {
-  const { data: signer, isError, isLoading } = useSigner();
-
-  const onLoginClick = async () => {
-    if (signer) {
-      console.log("signer", signer);
-    }
-  };
-
-  const feed = Feed();
-  console.log("feed", feed);
   return (
-    <div>
-      <div>
-        <h1 className="text-4xl font-bold text-center">Welcome to Lens</h1>
-      </div>
-      <Feed />
-    </div>
+    <>
+      <Head>
+        <title>Lens SDK - NextJS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>"
+        />
+      </Head>
+      <header>
+        <h1>Lens SDK</h1>
+
+        <p>
+          Example app that demonstrates a possible integration strategy with&nbsp;
+          <a href="https://nextjs.org/">NextJS</a>.
+        </p>
+      </header>
+      <main>
+        <Feed />
+      </main>
+    </>
   );
 };
-
 export default Home;
