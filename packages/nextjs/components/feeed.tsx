@@ -25,11 +25,8 @@ export function Feed() {
 
   return (
     <div>
-      <h1>
-        <code>useFeed</code>
-      </h1>
-
-      <fieldset>
+      {/* edit css inline here for the checkboxes */}
+      <fieldset style={{ paddingBottom: "5vh" }}>
         <legend>Restrict event types to</legend>
         {allFeedEventTypes.map(value => (
           <label key={value}>
@@ -60,9 +57,19 @@ export function Feed() {
       {data
         ?.filter(i => isPostPublication(i.root))
         .map((item, i) => (
-          <PublicationCard key={`${item.root.id}-${i}`} publication={item.root} />
+          <div
+            style={{
+              margin: "0 8vw 5vw 8vw",
+              border: "4px solid black",
+              borderRadius: "41px 25px 25px 0px",
+              boxShadow: "12px 12px 14px #888888",
+              padding: "8px",
+            }}
+            key={`${item.root.id}-${i}`}
+          >
+            <PublicationCard publication={item.root} />
+          </div>
         ))}
-
       {hasMore && <p ref={observeRef}>Loading more...</p>}
     </div>
   );

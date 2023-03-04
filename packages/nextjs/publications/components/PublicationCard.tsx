@@ -83,7 +83,7 @@ type PublicationCardProps = {
 export function PublicationCard({ publication }: PublicationCardProps) {
   if (publication.__typename === "PendingPost") {
     return (
-      <article>
+      <article style={{ margin: "auto", border: "10px solid black" }}>
         <ProfilePicture picture={publication.profile.picture} />
         <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
         <p>{publication.content}</p>
@@ -108,20 +108,73 @@ type CollectablePublicationCardProps = {
 };
 
 export function CollectablePublicationCard({ publication, collectButton }: CollectablePublicationCardProps) {
+  const cardStyles = {
+    display: "flex",
+    alignItems: "center",
+    marginBottom: "20px",
+    backgroundColor: "white",
+    padding: "10px",
+    borderRadius: "20px",
+    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+  };
+
+  const profilePictureStyles = {
+    height: "50px",
+    width: "50px",
+    borderRadius: "50%",
+    marginRight: "10px",
+  };
+
+  const usernameStyles = {
+    color: "#657786",
+    fontSize: "14px",
+  };
+
+  const contentStyles = {
+    marginBottom: "10px",
+    fontSize: "18px",
+    fontWeight: "400",
+  };
+
+  const collectStatsStyles = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: "10px",
+  };
+
+  const collectLimitReachedStyles = {
+    color: "#f45d22",
+    fontWeight: "600",
+    fontSize: "14px",
+  };
+
+  const collectTimeExpiredStyles = {
+    color: "#657786",
+    fontSize: "14px",
+  };
+
   return (
-    <article>
+    <article style={cardStyles}>
       <ProfilePicture picture={publication.profile.picture} />
-      <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
-      <p>{publication.hidden ? "This publication has been hidden" : publication.metadata.content}</p>
-      {collectButton}
-      {publication.collectPolicy.state === CollectState.COLLECT_LIMIT_REACHED && (
+      <div>
         <p>
-          {publication.stats.totalAmountOfCollects}/{publication.collectPolicy.collectLimit} collected
+          <b>{publication.profile.name ?? `@${publication.profile.handle}`}</b>&nbsp;
+          <span style={usernameStyles}>@{publication.profile.handle}</span>
         </p>
-      )}
-      {publication.collectPolicy.state === CollectState.COLLECT_TIME_EXPIRED && (
-        <p>Collectable until: {publication.collectPolicy.endTimestamp}</p>
-      )}
+        <p style={contentStyles}>
+          {publication.hidden ? "This publication has been hidden" : publication.metadata.content}
+        </p>
+        {collectButton}
+        {publication.collectPolicy.state === CollectState.COLLECT_LIMIT_REACHED && (
+          <p style={collectLimitReachedStyles}>
+            {publication.stats.totalAmountOfCollects}/{publication.collectPolicy.collectLimit} collected
+          </p>
+        )}
+        {publication.collectPolicy.state === CollectState.COLLECT_TIME_EXPIRED && (
+          <p style={collectTimeExpiredStyles}>Collectable until: {publication.collectPolicy.endTimestamp}</p>
+        )}
+      </div>
     </article>
   );
 }
