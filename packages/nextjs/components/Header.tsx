@@ -3,20 +3,50 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaucetButton } from "~~/components/scaffold-eth";
 import RainbowKitCustomConnectButton from "~~/components/scaffold-eth/RainbowKitCustomConnectButton";
-import { Bars3Icon, BugAntIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 import { useActiveProfile } from "@lens-protocol/react";
 import { LoginButton } from "~~/components/auth/LoginButton";
 
-const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
+const ConfettiNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const router = useRouter();
   const isActive = router.pathname === href;
   const { data: profile } = useActiveProfile();
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = event.clientX + "px";
+      confetti.style.top = event.clientY + "px";
+      confetti.style.backgroundColor = getRandomColor();
+      document.body.appendChild(confetti);
+      setTimeout(() => {
+        confetti.remove();
+      }, 3000);
+    }
+  };
+
+  const getRandomColor = () => {
+    const colors = [
+      "#e53935", // red
+      "#43a047", // green
+      "#1e88e5", // blue
+      "#fdd835", // yellow
+      "#6d4c41", // brown
+      "#8e24aa", // purple
+      "#00acc1", // cyan
+      "#ff8f00", // orange
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
   return (
     <Link
       href={href}
       passHref
+      onClick={handleClick}
       className={`${
         isActive ? "bg-secondary shadow-md" : ""
       } hover:bg-secondary hover:shadow-md focus:bg-secondary py-2 px-3 text-sm rounded-full gap-2`}
@@ -40,19 +70,16 @@ export default function Header() {
   const navLinks = (
     <>
       <li>
-        <NavLink href="/">Home</NavLink>
+        <ConfettiNavLink href="/">Profile</ConfettiNavLink>
       </li>
       <li>
-        <NavLink href="/debug">
-          <BugAntIcon className="h-4 w-4" />
-          Debug Contracts
-        </NavLink>
+        <ConfettiNavLink href="/debug">Respond to Review</ConfettiNavLink>
       </li>
       <li>
-        <NavLink href="/example-ui">
-          <SparklesIcon className="h-4 w-4" />
-          Example UI
-        </NavLink>
+        <ConfettiNavLink href="/example-ui">Sumbit Research</ConfettiNavLink>
+      </li>
+      <li>
+        <ConfettiNavLink href="/example-ui">Connect OrcID</ConfettiNavLink>
       </li>
     </>
   );
