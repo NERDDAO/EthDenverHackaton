@@ -8,10 +8,10 @@ const ProfilePage: NextPage = () => {
   return (
     <>
       <header>
-        <h1 style={{ margin: "auto" }}> LenScholar</h1>
+        <h1>LenScholar</h1>
       </header>
       <main style={{ textAlign: "center" }}>
-        <h1 style={{ backgroundColor: "white", textAlign: "center" }}>Researcher Profile</h1>
+        <h1 style={{ backgroundColor: "#f0f0f000", textAlign: "center" }}>Researcher Profile</h1>
         <div>
           <UseUpdateProfileDetails />
         </div>
