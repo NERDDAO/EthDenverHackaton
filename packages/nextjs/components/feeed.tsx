@@ -26,8 +26,8 @@ export function Feed() {
   return (
     <div>
       {/* edit css inline here for the checkboxes */}
-      <fieldset style={{ paddingBottom: "5vh" }}>
-        <legend>Restrict event types to</legend>
+      <fieldset style={{ paddingBottom: "5vh", fontSize: "4px" }}>
+        <legend>Filters</legend>
         {allFeedEventTypes.map(value => (
           <label key={value}>
             <input
@@ -64,6 +64,7 @@ export function Feed() {
               borderRadius: "41px 25px 25px 0px",
               boxShadow: "12px 12px 14px #888888",
               padding: "8px",
+              maxWidth: "500px",
             }}
             key={`${item.root.id}-${i}`}
           >

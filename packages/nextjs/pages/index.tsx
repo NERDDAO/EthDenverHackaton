@@ -24,13 +24,8 @@ const Home: NextPage = () => {
       </Head>
       <header>
         <h1>LenScholar</h1>
-
-        <p>
-          Example app that demonstrates a possible integration strategy with&nbsp;
-          <a href="https://nextjs.org/">NextJS</a>.
-        </p>
       </header>
-      <main>
+      <main style={{ margin: "auto" }}>
         <Feed />
       </main>
     </>
