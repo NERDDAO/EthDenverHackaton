@@ -60,7 +60,7 @@ export function Feed() {
           <div
             style={{
               margin: "0 8vw 5vw 8vw",
-              border: "4px solid black",
+              border: "3px solid black",
               borderRadius: "41px 25px 25px 0px",
               boxShadow: "12px 12px 14px #888888",
               padding: "8px",

@@ -5,8 +5,19 @@ import { UseCreateProfile } from "../profiles/useCreateProfile";
 const ExampleUI: NextPage = () => {
   return (
     <>
-      <main>
-        <h1>Example UI</h1>
+      <main style={{ textAlign: "center" }}>
+        <h1
+          style={{
+            fontSize: "4rem",
+            marginBottom: "2vh",
+            margin: "auto",
+            backgroundColor: "rgb(171, 254, 44)",
+            textAlign: "center",
+            padding: "16px",
+          }}
+        >
+          Submit Research
+        </h1>
         <UseCreateProfile />
         <UseCreatePost />
       </main>
