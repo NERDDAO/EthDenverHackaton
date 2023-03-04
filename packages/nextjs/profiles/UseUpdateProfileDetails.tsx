@@ -21,6 +21,7 @@ function UpdateProfileForm({ profile }: UpdateProfileFormProps) {
     const attributes = {
       location: (formData.get("location") as string | null) || null,
       website: (formData.get("website") as string | null) || null,
+      orcId: (formData.get("orcId") as string | null) || null,
     };
     await update({ name, bio, attributes });
   }
@@ -61,6 +62,17 @@ function UpdateProfileForm({ profile }: UpdateProfileFormProps) {
         <input
           type="text"
           placeholder="Where are you?"
+          disabled={isPending}
+          name="location"
+          defaultValue={profile.attributes.location?.toString()}
+        />
+      </label>
+      <label>
+        OrcID:
+        <br />
+        <input
+          type="text"
+          placeholder="Researcher ID"
           disabled={isPending}
           name="location"
           defaultValue={profile.attributes.location?.toString()}
