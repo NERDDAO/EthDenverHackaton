@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Lens SDK - NextJS</title>
+        <title>LenScholar</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="icon"
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         />
       </Head>
       <header>
-        <h1>Lens SDK</h1>
+        <h1>LenScholar</h1>
 
         <p>
           Example app that demonstrates a possible integration strategy with&nbsp;
