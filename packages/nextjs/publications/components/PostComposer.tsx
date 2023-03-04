@@ -15,8 +15,11 @@ export function PostComposer({ publisher }: PostComposerProps) {
 
     const form = event.currentTarget;
 
-    const formData = new FormData(form);
-    const content = (formData.get("content") as string | null) ?? never();
+    const abstract = (form.elements.namedItem("abstract") as HTMLTextAreaElement).value;
+    const research = (form.elements.namedItem("research") as HTMLTextAreaElement).value;
+    const references = (form.elements.namedItem("references") as HTMLTextAreaElement).value;
+
+    const content = `${abstract}\n\n${research}\n\n${references}`;
 
     await create({
       content,
@@ -50,12 +53,6 @@ export function PostComposer({ publisher }: PostComposerProps) {
           ></textarea>
           <br />
 
-          {error && <pre>{error.message}</pre>}
-        </fieldset>
-      </form>
-
-      <form onSubmit={submit}>
-        <fieldset>
           <textarea
             name="research"
             minLength={1}
@@ -74,12 +71,6 @@ export function PostComposer({ publisher }: PostComposerProps) {
           ></textarea>
           <br />
 
-          {error && <pre>{error.message}</pre>}
-        </fieldset>
-      </form>
-
-      <form onSubmit={submit}>
-        <fieldset>
           <textarea
             name="references"
             minLength={1}
@@ -97,6 +88,7 @@ export function PostComposer({ publisher }: PostComposerProps) {
             disabled={isPending}
           ></textarea>
           <br />
+
           <button disabled={isPending}>Post</button>
 
           {error && <pre>{error.message}</pre>}
