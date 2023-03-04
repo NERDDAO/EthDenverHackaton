@@ -1,6 +1,5 @@
 import { useCreateProfile, useProfile } from "@lens-protocol/react";
 import { useState } from "react";
-
 import { ErrorMessage } from "../components/error/ErrorMessage";
 import { never } from "../utils";
 import { ProfileCard } from "./components/ProfileCard";
@@ -37,27 +36,40 @@ export function UseCreateProfile() {
 
   return (
     <div>
-      <h1>
-        <code>useCreateProfile</code>
-      </h1>
-
-      <form onSubmit={onSubmit}>
-        <fieldset>
+      <div>Connected as:{newProfileHandle && <ShowProfile handle={newProfileHandle} />}</div>
+      <form
+        onSubmit={onSubmit}
+        style={{
+          border: "3px solid black",
+          maxWidth: "64vw",
+          margin: "auto",
+          borderRadius: "41px 25px 25px 0px",
+          boxShadow: "12px 12px 14px #888888",
+          marginBottom: "5vh",
+        }}
+      >
+        <fieldset style={{ padding: "1.5vh" }}>
           <label>
             Enter a profile handle:
             <br />
-            <input name="handle" minLength={5} maxLength={31} required type="text" disabled={isPending} />
+            <input
+              style={{ marginBottom: "1.5vh", border: "1px solid lightgrey" }}
+              name="handle"
+              minLength={5}
+              maxLength={31}
+              required
+              type="text"
+              disabled={isPending}
+            />
           </label>
-
-          <button type="submit" disabled={isPending}>
+          <br />
+          <button style={{ marginBottom: "1vh" }} disabled={isPending}>
             {isPending ? "Creating..." : "Create profile"}
           </button>
         </fieldset>
 
         {error && <p>{error.message}</p>}
       </form>
-
-      <div>{newProfileHandle && <ShowProfile handle={newProfileHandle} />}</div>
     </div>
   );
 }

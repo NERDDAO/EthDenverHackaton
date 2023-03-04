@@ -39,19 +39,23 @@ export function Timeline({ profileId }: TimelineProps) {
 
 export function UseCreatePost() {
   return (
-    <div>
-      <h1>
-        <code>useCreatePost</code>
-      </h1>
-
+    // edit the following style for the post input divbox
+    <div
+      style={{
+        border: "3px solid black",
+        maxWidth: "64vw",
+        padding: "2vh 0 2vh 2vh",
+        margin: "auto",
+        borderRadius: "41px 25px 25px 0px",
+        boxShadow: "12px 12px 14px #888888",
+      }}
+    >
       <WhenLoggedInWithProfile>
         {({ profile }) => (
           <>
             <div>{profile.handle}</div>
             <div>profileId: {profile.id}</div>
             <PostComposer publisher={profile} />
-
-            <Timeline profileId={profile.id} />
           </>
         )}
       </WhenLoggedInWithProfile>

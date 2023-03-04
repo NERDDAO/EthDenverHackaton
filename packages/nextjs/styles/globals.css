@@ -140,14 +140,15 @@ legend {
 }
 
 fieldset {
+  margin: auto;
   border: none;
-  padding-left: 5vw;
+  max-width: 70vw;
 }
 
 label {
+
   font-size: 0.8rem;
-  display: inline-block;
-  margin-right: 16px; 
+  
 }
 
 input[type="checkbox"] {
