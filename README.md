@@ -3,6 +3,7 @@
 
  **PURPOSE**= to create a pipeline where anyone could submit, review or fund peer reviewed papers. 
 
+ 
  What is a peer reviewed paper?
 
  A peer-reviewed paper is an article or paper that has been evaluated by a group of experts in the same field of study or research in order to ensure that the information presented is accurate, reliable, and of high quality. This review process is known as peer review, and it typically involves sending the paper to several reviewers who are experts in the relevant subject matter.
@@ -42,6 +43,7 @@ A decentralized peer review system could help to address some of these issues by
 Decentralized systems could also use blockchain technology or other decentralized databases to create a more transparent, secure, and verifiable record of the review process. This could help to ensure that the process is fair and that reviewers are held accountable for their decisions.
 
 Overall, a decentralized peer review system could provide a more democratic, transparent, and equitable way of evaluating and validating scientific and academic research. While there are certainly challenges to implementing such a system, including technical and social barriers, there is growing interest in exploring decentralized approaches to peer review and other aspects of scholarly publishing.
+
 
 ## Overview:
 
@@ -95,6 +97,7 @@ Overall, a decentralized peer review system could provide a more democratic, tra
 The diagram above shows how Impact score would be calculated. In this example we have Paper A and Paper B. Paper A has an impact score associated with it, and Paper B has cited Paper A in its references. The reference is tracked in the data store, and when calculating the impact score for Paper A, the system would take into account the fact that Paper B has cited it. The updated impact score for Paper A would then be stored in the data store and updated in the user profiles. This updated diagram shows how a decentralized publishing system could incorporate a reference process to help calculate and update the impact scores of published papers.                          
 
 Lens.xyz posts are used instead of a decentralized data store to store the papers, reviews, and impact scores. The peer review and submission process occurs through the Lens.xyz platform, and the impact scores are stored in Lens.xyz posts. User profiles are also stored as Lens.xyz posts, which are linked to the relevant papers and impact scores. This updated diagram shows how a decentralized publishing system could integrate Lens.xyz to store the data and provide a more user-friendly interface for users
+
 
 ## Architecture: 
 
@@ -156,3 +159,42 @@ Challenges
 - Build a system to incentivize high-quality comments from reviewers and reduce low-quality or spam comments.
 - Develop a reputation system for reviewers to increase the value of their comments and improve the quality of the review process.
 - Design a decentralized impact score system that is transparent, secure, and independent of centralized third parties.
+
+
+## Installation Guide
+
+Git clone the repo and run it, pursuant to the following clone address
+
+git clone https://github.com/NERDDFO/ethdenver
+
+cd ethdenver
+
+yarn install
+
+yarn start
+
+access http://localhost:3000/
+
+---
+## Usage
+
+The following image shows the index page running the app.
+
+## ![Screenshot of LenScholar index page](images/LensIndex.png) <br>
+
+<br>
+
+## License
+
+MIT License
+
+Copyright (c) 2023 Nerd Finance
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
