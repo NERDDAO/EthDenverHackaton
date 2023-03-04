@@ -1,59 +1,14 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import { ContractData, ContractInteraction } from "~~/components/ExampleUi";
-import { Timeline, UseCreatePost } from "~~/publications/pooost";
-import { useActiveProfile, useWalletLogin } from "@lens-protocol/react";
-import { useAccount, useConnect } from "wagmi";
-import { InjectedConnector } from "wagmi/connectors/injected";
+import { Timeline, UseCreatePost } from "../publications/pooost";
+import { UseCreateProfile } from "../profiles/useCreateProfile";
 
 const ExampleUI: NextPage = () => {
-  const { execute: login, isPending } = useWalletLogin();
-  const { data: profile } = useActiveProfile();
-
-  const { isDisconnected } = useAccount();
-  const { connectAsync } = useConnect({
-    connector: new InjectedConnector(),
-  });
-  const onLoginClick = async () => {
-    if (isDisconnected) {
-      const { connector } = await connectAsync();
-
-      if (connector instanceof InjectedConnector) {
-        const signer = await connector.getSigner();
-        await login(signer);
-      }
-    }
-  };
-
   return (
     <>
-      <Head>
-        <title>Lens SDK - NextJS</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>"
-        />
-      </Head>
-      <header>
-        <h1>Lens SDK</h1>
-
-        <p>
-          Example app that demonstrates a possible integration strategy with&nbsp;
-          <a href="https://nextjs.org/">NextJS</a>.
-        </p>
-      </header>
       <main>
-        {profile && (
-          <p>
-            Welcome <b>@{profile.handle}</b>
-          </p>
-        )}
-        {!profile && (
-          <button disabled={isPending} onClick={onLoginClick}>
-            Log in
-          </button>
-        )}
+        <h1>Example UI</h1>
+        <UseCreateProfile />
+        <UseCreatePost />
       </main>
     </>
   );
