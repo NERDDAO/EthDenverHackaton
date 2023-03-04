@@ -25,6 +25,7 @@ const Home: NextPage = () => {
       <header>
         <h1>LenScholar</h1>
       </header>
+      <h1 style={{ backgroundColor: "#f0f0f000", marginTop: "2vh", fontSize: "4rem" }}>Research Feed</h1>
       <main style={{ margin: "auto" }}>
         <Feed />
       </main>

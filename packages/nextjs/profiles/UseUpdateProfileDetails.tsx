@@ -92,7 +92,7 @@ export function UseUpdateProfileDetails() {
   const { data: profile, loading } = useActiveProfile();
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       {loading && <Loading />}
 
       {profile && <UpdateProfileForm profile={profile} />}
