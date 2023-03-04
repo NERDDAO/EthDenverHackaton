@@ -93,10 +93,6 @@ export function UseUpdateProfileDetails() {
 
   return (
     <div>
-      <h1>
-        <code>useUpdateProfileDetails</code>
-      </h1>
-
       {loading && <Loading />}
 
       {profile && <UpdateProfileForm profile={profile} />}
