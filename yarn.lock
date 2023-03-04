@@ -933,21 +933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lens-protocol/shared-kernel@npm:0.4.1":
-  version: 0.4.1
-  resolution: "@lens-protocol/shared-kernel@npm:0.4.1"
-  dependencies:
-    decimal.js: ^10.4.3
-    lodash: ^4.17.21
-    tslib: ^2.4.1
-    uuid: ^9.0.0
-  peerDependencies:
-    ethers: ^5.7.2
-  checksum: 94ee67fb104cd19292d60ed3d1faeeec741d66c991328c446548a27643369075b8c5f5669978c4ff3236e97588ba79ccf5172886cfbee809703e2dfa8c39a111
-  languageName: node
-  linkType: hard
-
-"@lens-protocol/shared-kernel@npm:0.5.0":
+"@lens-protocol/shared-kernel@npm:0.5.0, @lens-protocol/shared-kernel@npm:^0.5.0":
   version: 0.5.0
   resolution: "@lens-protocol/shared-kernel@npm:0.5.0"
   dependencies:
@@ -969,19 +955,6 @@ __metadata:
     tslib: ^2.5.0
     zod: ^3.20.6
   checksum: 77d99f8b1e9edb2e2749dc64851f51c76b9ae38a7c143e0dd9dd31145af3a0e069035f997e432fe794858e90232e89427886316941c67b202b212afabe1ee080
-  languageName: node
-  linkType: hard
-
-"@lens-protocol/wagmi@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@lens-protocol/wagmi@npm:0.4.1"
-  dependencies:
-    "@lens-protocol/shared-kernel": 0.4.1
-  peerDependencies:
-    "@lens-protocol/react": 0.4.1
-    ethers: ^5.7.2
-    wagmi: 0.9.2
-  checksum: 53897e1dee520b2384c1c1ec173b56b366091fb32e81396d1d668cbb00169b690a7d43c89e0c5ab8678621f70e15cee8016c7c90b3b067b95d7a44878723bbc2
   languageName: node
   linkType: hard
 
@@ -1693,10 +1666,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openzeppelin/contracts@npm:^4.8.1":
-  version: 4.8.1
-  resolution: "@openzeppelin/contracts@npm:4.8.1"
-  checksum: 99acefde1ae42c2d935ec9b4ebd327e786c499a4ec76b9582eb9adb0ff94a77c48047332fba44fb97b82b5a46d80e74d3e5d8cf73d5defa7f746f2a67f070281
+"@openzeppelin/contracts@npm:^4.8.2":
+  version: 4.8.2
+  resolution: "@openzeppelin/contracts@npm:4.8.2"
+  checksum: 1d362f0b9c880549cb82544e23fb70270fbbbe24a69e10bd5aa07649fd82347686173998ae484defafdc473d04004d519f839e3cd3d3e7733d0895b950622243
   languageName: node
   linkType: hard
 
@@ -1851,7 +1824,7 @@ __metadata:
     "@nomicfoundation/hardhat-toolbox": ^2.0.0
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13"
     "@nomiclabs/hardhat-etherscan": ^3.1.0
-    "@openzeppelin/contracts": ^4.8.1
+    "@openzeppelin/contracts": ^4.8.2
     "@typechain/ethers-v5": ^10.1.0
     "@typechain/hardhat": ^6.1.3
     "@types/eslint": ^8
@@ -1888,7 +1861,8 @@ __metadata:
     "@ethersproject/web": ^5.7.1
     "@heroicons/react": ^2.0.11
     "@lens-protocol/react": ^0.5.0
-    "@lens-protocol/wagmi": ^0.4.1
+    "@lens-protocol/shared-kernel": ^0.5.0
+    "@lens-protocol/wagmi": ^0.5.0
     "@rainbow-me/rainbowkit": ^0.11.0
     "@types/node": ^17.0.35
     "@types/react": ^18.0.9
@@ -13683,7 +13657,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.3.0, tslib@npm:^2.4.1, tslib@npm:^2.5.0":
+"tslib@npm:^2.3.0, tslib@npm:^2.5.0":
   version: 2.5.0
   resolution: "tslib@npm:2.5.0"
   checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
