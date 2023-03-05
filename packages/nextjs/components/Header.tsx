@@ -70,16 +70,16 @@ export default function Header() {
   const navLinks = (
     <>
       <li>
-        <ConfettiNavLink href="/">Profile</ConfettiNavLink>
-      </li>
-      <li>
-        <ConfettiNavLink href="/debug">Respond to Review</ConfettiNavLink>
+        <ConfettiNavLink href="/">Research Feed</ConfettiNavLink>
       </li>
       <li>
         <ConfettiNavLink href="/example-ui">Sumbit Research</ConfettiNavLink>
       </li>
       <li>
-        <ConfettiNavLink href="/example-ui">Connect OrcID</ConfettiNavLink>
+        <ConfettiNavLink href="/debug">Respond to Review</ConfettiNavLink>
+      </li>
+      <li>
+        <ConfettiNavLink href="/profilePage">Researcher Profile</ConfettiNavLink>
       </li>
     </>
   );

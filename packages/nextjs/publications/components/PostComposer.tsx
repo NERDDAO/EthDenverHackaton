@@ -28,24 +28,80 @@ export function PostComposer({ publisher }: PostComposerProps) {
   };
 
   return (
-    <form onSubmit={submit}>
-      <fieldset>
-        <textarea
-          name="content"
-          minLength={1}
-          required
-          rows={3}
-          placeholder="What's happening?"
-          style={{ resize: "none" }}
-          disabled={isPending}
-        ></textarea>
+    <div>
+      <form onSubmit={submit}>
+        <fieldset>
+          <textarea
+            name="abstract"
+            minLength={1}
+            required
+            rows={3}
+            placeholder="Place your abstract here."
+            style={{
+              marginTop: "2vh",
+              borderRadius: "8px",
+              resize: "none",
+              width: "70%",
+              height: "20vh",
+              border: "1px solid lightgrey",
+              marginBottom: "2vh",
+            }}
+            disabled={isPending}
+          ></textarea>
+          <br />
 
-        <button type="submit" disabled={isPending}>
-          Post
-        </button>
+          {error && <pre>{error.message}</pre>}
+        </fieldset>
+      </form>
 
-        {error && <pre>{error.message}</pre>}
-      </fieldset>
-    </form>
+      <form onSubmit={submit}>
+        <fieldset>
+          <textarea
+            name="research"
+            minLength={1}
+            required
+            rows={3}
+            placeholder="Place your research here."
+            style={{
+              borderRadius: "8px",
+              resize: "none",
+              width: "70%",
+              height: "20vh",
+              border: "1px solid lightgrey",
+              marginBottom: "2vh",
+            }}
+            disabled={isPending}
+          ></textarea>
+          <br />
+
+          {error && <pre>{error.message}</pre>}
+        </fieldset>
+      </form>
+
+      <form onSubmit={submit}>
+        <fieldset>
+          <textarea
+            name="references"
+            minLength={1}
+            required
+            rows={3}
+            placeholder="List your references here."
+            style={{
+              borderRadius: "8px",
+              resize: "none",
+              width: "70%",
+              height: "20vh",
+              border: "1px solid lightgrey",
+              marginBottom: "2vh",
+            }}
+            disabled={isPending}
+          ></textarea>
+          <br />
+          <button disabled={isPending}>Post</button>
+
+          {error && <pre>{error.message}</pre>}
+        </fieldset>
+      </form>
+    </div>
   );
 }
