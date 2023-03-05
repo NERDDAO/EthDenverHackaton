@@ -19,7 +19,7 @@ export function PostComposer({ publisher }: PostComposerProps) {
     const research = (form.elements.namedItem("research") as HTMLTextAreaElement).value;
     const references = (form.elements.namedItem("references") as HTMLTextAreaElement).value;
 
-    const content = `${abstract}\n\n${research}\n\n${references}`;
+    const content = abstract + "\n\n" + research + "\n\n" + references;
 
     await create({
       content,

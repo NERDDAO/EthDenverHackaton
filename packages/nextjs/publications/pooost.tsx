@@ -7,6 +7,7 @@ import { Loading } from "../components/loading/Loading";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 import { PostComposer } from "./components/PostComposer";
 import { PublicationCard } from "./components/PublicationCard";
+import { UsePublications } from "./UsePublications";
 
 type TimelineProps = {
   profileId: string;
