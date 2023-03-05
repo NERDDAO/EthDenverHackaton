@@ -20,17 +20,7 @@ export function UsePublications() {
 
   return (
     <div>
-      <div
-        style={{
-          marginTop: "4vh",
-          border: "3px solid black",
-          maxWidth: "64vw",
-          padding: "2vh 0 2vh 2vh",
-          margin: "auto",
-          borderRadius: "41px 25px 25px 0px",
-          boxShadow: "12px 12px 14px #888888",
-        }}
-      >
+      <div>
         {publications.map(publication => (
           <PublicationCard key={publication.id} publication={publication} />
         ))}

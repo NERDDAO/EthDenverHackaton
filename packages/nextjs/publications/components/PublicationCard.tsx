@@ -83,7 +83,7 @@ type PublicationCardProps = {
 export function PublicationCard({ publication }: PublicationCardProps) {
   if (publication.__typename === "PendingPost") {
     return (
-      <article style={{ margin: "auto", border: "10px solid black" }}>
+      <article style={{ border: "10px solid black" }}>
         <ProfilePicture picture={publication.profile.picture} />
         <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
         <p>{publication.content}</p>
@@ -93,11 +93,23 @@ export function PublicationCard({ publication }: PublicationCardProps) {
 
   return (
     <article>
-      <ProfilePicture picture={publication.profile.picture} />
-      <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
-      <p>
-        <Content publication={isMirrorPublication(publication) ? publication.mirrorOf : publication} />
-      </p>
+      <div
+        style={{
+          border: "3px solid black",
+          maxWidth: "64vw",
+          padding: "2vh 0 2vh 2vh",
+          margin: "auto",
+          marginBottom: "4vh",
+          borderRadius: "41px 25px 25px 0px",
+          boxShadow: "12px 12px 14px #888888",
+        }}
+      >
+        <ProfilePicture picture={publication.profile.picture} />
+        <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
+        <p>
+          <Content publication={isMirrorPublication(publication) ? publication.mirrorOf : publication} />
+        </p>
+      </div>
     </article>
   );
 }
@@ -123,6 +135,7 @@ export function CollectablePublicationCard({ publication, collectButton }: Colle
     width: "50px",
     borderRadius: "50%",
     marginRight: "10px",
+    alignItems: "center",
   };
 
   const usernameStyles = {

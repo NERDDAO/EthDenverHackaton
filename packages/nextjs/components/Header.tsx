@@ -16,11 +16,13 @@ const ConfettiNavLink = ({ href, children }: { href: string; children: React.Rea
   const { data: profile } = useActiveProfile();
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const spread = 100; // Set the spread distance in pixels
+
     for (let i = 0; i < 50; i++) {
       const confetti = document.createElement("div");
       confetti.classList.add("confetti");
-      confetti.style.left = event.clientX + "px";
-      confetti.style.top = event.clientY + "px";
+      confetti.style.left = event.clientX + getRandomInt(-spread, spread) + "px";
+      confetti.style.top = event.clientY + getRandomInt(-spread, spread) + "px";
       confetti.style.backgroundColor = getRandomColor();
       document.body.appendChild(confetti);
       setTimeout(() => {
@@ -28,6 +30,11 @@ const ConfettiNavLink = ({ href, children }: { href: string; children: React.Rea
       }, 3000);
     }
   };
+
+  // Helper function to get a random integer between two values
+  function getRandomInt(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
 
   const getRandomColor = () => {
     const colors = [
