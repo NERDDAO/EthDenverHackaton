@@ -69,7 +69,7 @@ contract ProfileFollowModule is FollowValidatorFollowModuleBase, FunctionsConsum
             revert Errors.FollowInvalid();
         } else {
             // Call Chainlink Functions Oracle to validate additional follow requirements
-            string memory source = "var profileId = args[0]; var walletAddress = args[1]; const response = await Functions.makeHttpRequest({ url: `https://orcid.org/` + profileId, }) const startPos = response.data.indexOf('<personal-details:content>address: ') + '<personal-details:content>address: '.length; const endPos = response.data.indexOf('</personal-details:content>'); const address = response.data.substring(startPos, endPos); var isValidUser = 0; if ( walletAddress === address) { isValidUser == 1; } console.log(address); console.log(isValidUser); return Functions.encodeInt256(isValidUser)";
+            string memory source = "var profileId = args[0]; var walletAddress = args[1]; const response = await Functions.makeHttpRequest({ url: `https://orcid.org/` + profileId, }) const startPos = response.data.indexOf('<personal-details:content>address: ') + '<personal-details:content>address: '.length; const endPos = response.data.indexOf('</personal-details:content>'); const address = response.data.substring(startPos, endPos); var isValidUser = 0; if ( walletAddress === address) { isValidUser = 1; } console.log(address); console.log(isValidUser); return Functions.encodeInt256(isValidUser)";
         
             bytes memory response = executeRequest(
                 source, 
