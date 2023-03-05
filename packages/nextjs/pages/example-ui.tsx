@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
-import { Timeline, UseCreatePost } from "../publications/pooost";
+import { UseCreatePost } from "../publications/pooost";
 import { UseCreateProfile } from "../profiles/useCreateProfile";
+import { UsePublications } from "~~/publications/UsePublications";
+import { UseActiveProfileSwitch } from "../profiles/UseActiveProfileSwitch";
 
 const ExampleUI: NextPage = () => {
   return (
@@ -21,8 +23,11 @@ const ExampleUI: NextPage = () => {
         >
           Submit Research
         </h1>
+
         <UseCreateProfile />
+        <UseActiveProfileSwitch />
         <UseCreatePost />
+        <UsePublications />
       </main>
     </>
   );
