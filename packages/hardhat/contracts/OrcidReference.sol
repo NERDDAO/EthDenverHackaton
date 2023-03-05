@@ -60,36 +60,33 @@ contract ProfileFollowModule is FollowValidatorFollowModuleBase, FunctionsConsum
         bytes calldata data
     ) 
 
-     external override onlyHub {
-    // uint256 followerProfileId = abi.decode(data, (uint256));
-    // if (IERC721(HUB).ownerOf(followerProfileId) != follower) {
-    //     revert Errors.NotProfileOwner();
-    // }
-    // if (isProfileFollowing[followerProfileId][profileId]) {
-    //     revert Errors.FollowInvalid();
-    // } else {
-    //     // Call Chainlink Functions Oracle to validate additional follow requirements
-    //     string memory source = "function main(uint256 profileId, uint256 followerProfileId) " 
-    //                             "public view returns (bool) { "
-    //                             "  // additional follow requirements logic here "
-    //                             "}";
-    //
-    //     bytes memory response = executeRequest(
-    //         source, 
-    //         "0x", 
-    //         Functions.Location.Inline, 
-    //         [profileId.toString(), followerProfileId.toString()], 
-    //         subscriptionId, 
-    //         gasLimit
-    //     );
-    //
-    //     if (response.length == 0) {
-    //         revert Errors.FollowInvalid();
-    //     } else {
-    //         isProfileFollowing[followerProfileId][profileId] = true;
-    //     }
-    // }
-}
+    external override onlyHub {
+        uint256 followerProfileId = abi.decode(data, (uint256));
+        if (IERC721(HUB).ownerOf(followerProfileId) != follower) {
+            revert Errors.NotProfileOwner();
+        }
+        if (isProfileFollowing[followerProfileId][profileId]) {
+            revert Errors.FollowInvalid();
+        } else {
+            // Call Chainlink Functions Oracle to validate additional follow requirements
+            string memory source = "var profileId = args[0]; var walletAddress = args[1]; const response = await Functions.makeHttpRequest({ url: `https://orcid.org/` + profileId, }) const startPos = response.data.indexOf('<personal-details:content>address: ') + '<personal-details:content>address: '.length; const endPos = response.data.indexOf('</personal-details:content>'); const address = response.data.substring(startPos, endPos); var isValidUser = 0; if ( walletAddress === address) { isValidUser == 1; } console.log(address); console.log(isValidUser); return Functions.encodeInt256(isValidUser)";
+        
+            bytes memory response = executeRequest(
+                source, 
+                "0x", 
+                Functions.Location.Inline, 
+                [profileId.toString(), followerProfileId.toString()], 
+                subscriptionId, 
+                gasLimit
+            );
+        
+            if (response.length == 0) {
+                revert Errors.FollowInvalid();
+            } else {
+                isProfileFollowing[followerProfileId][profileId] = true;
+            }
+        }
+    }
 
     /**
      * @dev We don't need to execute any additional logic on transfers in this follow module.
