@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import logo from "./assets/logo.png";
 import { FaucetButton } from "~~/components/scaffold-eth";
 import RainbowKitCustomConnectButton from "~~/components/scaffold-eth/RainbowKitCustomConnectButton";
 import { Bars3Icon } from "@heroicons/react/24/outline";
