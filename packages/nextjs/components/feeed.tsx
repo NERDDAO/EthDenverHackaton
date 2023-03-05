@@ -18,7 +18,7 @@ export function Feed() {
   const [restrictEventTypesTo, setRestrictEventTypesTo] = useState<FeedEventItemType[]>([FeedEventItemType.Post]);
   const { data, error, loading, hasMore, observeRef } = useInfiniteScroll(
     useFeed({
-      profileId: "0x3a2a",
+      profileId: "0x70b2",
       restrictEventTypesTo,
     }),
   );

@@ -19,7 +19,7 @@ export function PublicationComments({ publicationId }: PublicationCommentsProps)
   if (data.length === 0) return <p>No items</p>;
 
   return (
-    <div>
+    <div style={{ margin: "auto" }}>
       {data.map((item, i) => (
         <PublicationCard key={`${item.id}-${i}`} publication={item} />
       ))}

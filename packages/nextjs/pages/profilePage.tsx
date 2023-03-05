@@ -15,6 +15,10 @@ const ProfilePage: NextPage = () => {
         <div>
           <UseUpdateProfileDetails />
         </div>
+        <p>
+          ****Before you sign in with OrcID, please updated your OrcID Bio to include Lens-connected Wallet Address***
+        </p>
+        <p>This is so we can verify on chain that you are the owner of your scholarly credentials~</p>
         <button
           style={{
             marginTop: "2vh",
