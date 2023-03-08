@@ -28,6 +28,7 @@ function RemoteProfilePicture({ url }: RemoteProfilePictureProps) {
     <img
       src={src}
       style={{
+        margin: "auto",
         height: PROFILE_PICTURE_SIZE,
         width: PROFILE_PICTURE_SIZE,
         borderRadius: "50%",

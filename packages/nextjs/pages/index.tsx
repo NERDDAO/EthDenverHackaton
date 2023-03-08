@@ -12,6 +12,9 @@ import { LoginButton } from "~~/components/auth/LoginButton";
 import { WhenLoggedInWithProfile } from "~~/components/auth/WhenLoggedInWithProfile";
 import { ProfileById } from "~~/components/useProfileById";
 import { ProfileByHandle } from "~~/profiles/UseProfileByHandle";
+import { UsePublications } from "~~/publications/UsePublications";
+import { UseCreateComment } from "~~/publications/UseCreateComment";
+
 
 const Home: NextPage = () => {
   return (
@@ -29,9 +32,11 @@ const Home: NextPage = () => {
       </header>
       <h1 style={{ backgroundColor: "#f0f0f000", marginTop: "2vh", fontSize: "4rem" }}>Research Feed</h1>
       <main style={{ margin: "auto" }}>
-        <ProfileByHandle />
-        <ProfileById />
-        <Feed />
+        {/* <ProfileByHandle />
+        <ProfileById /> */}
+        <br></br>
+        <UsePublications />
+        <UseCreateComment />
       </main>
     </>
   );

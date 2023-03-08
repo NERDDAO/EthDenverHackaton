@@ -47,6 +47,7 @@ export function UseCreatePost() {
         maxWidth: "64vw",
         padding: "2vh 0 2vh 2vh",
         margin: "auto",
+        marginBottom: "4vh",
         borderRadius: "41px 25px 25px 0px",
         boxShadow: "12px 12px 14px #888888",
       }}

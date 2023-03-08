@@ -40,13 +40,11 @@ export function CommentComposer({ publisher, publicationId }: CommentComposerPro
           rows={3}
           required
           placeholder="Say gm...?"
-          style={{ resize: "none" }}
+          style={{ resize: "none", margin: "auto" }}
           disabled={isPending}
         ></textarea>
 
-        <button type="submit" disabled={isPending}>
-          Comment
-        </button>
+        <button disabled={isPending}>Submit Peer Review</button>
 
         {error && <pre>{error.message}</pre>}
       </fieldset>
